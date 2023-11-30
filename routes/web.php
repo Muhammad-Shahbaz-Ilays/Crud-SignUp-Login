@@ -22,6 +22,7 @@ Route::get('products/showdata',[ProductController::class,'showdata'])->name('pro
 Route::get('products/{id}/edit',[ProductController::class,'edit']);
 Route::put('products/{id}/update',[ProductController::class,'update']);
 Route::get('products/{id}/delete',[ProductController::class,'destroy']);
+Route::post('products/deletedata', [ProductController::class, 'deletedata'])->name('products.deletedata');
 
 
 Route::group(['middleware'=>'guest'],function(){
