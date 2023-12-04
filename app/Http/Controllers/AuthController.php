@@ -23,7 +23,9 @@ class AuthController extends Controller
 
         //login code
         if(\Auth::attempt($request->only('email','password'))){
-            return redirect('home');
+            // return redirect('admin.dashboard');
+            return redirect()->route('admin.dashboard');
+            //return redirect()->intended(route('admin.dashboard'));
         }
         //error message
         return redirect('login')->withError('login details are not valid');
@@ -58,7 +60,7 @@ class AuthController extends Controller
 
         //login user here
         if(\Auth::attempt($request->only('email','password'))){
-            return redirect('home');
+            return redirect('login');
         }
         //error message
         return redirect('register')->withError('Error');

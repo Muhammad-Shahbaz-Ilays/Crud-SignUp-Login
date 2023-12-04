@@ -23,6 +23,7 @@ Route::get('products/{id}/edit',[ProductController::class,'edit']);
 Route::put('products/{id}/update',[ProductController::class,'update']);
 Route::get('products/{id}/delete',[ProductController::class,'destroy']);
 Route::post('products/deletedata', [ProductController::class, 'deletedata'])->name('products.deletedata');
+Route::get('/admin/dashboard', [ProductController::class, 'dashboard'])->name('admin.dashboard');
 
 
 Route::group(['middleware'=>'guest'],function(){
@@ -38,6 +39,10 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('home',[AuthController::class, 'home'])->name('home');
     Route::get('logout',[AuthController::class, 'logout'])->name('logout');
+    Route::get('/admin/dashboard', [ProductController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('products/showdata',[ProductController::class,'showdata'])->name('products.showdata');
+    Route::get('products/create',[ProductController::class,'create'])->name('products.create');
 
+    
 });
 

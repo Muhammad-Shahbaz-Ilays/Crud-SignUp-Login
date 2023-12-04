@@ -37,6 +37,11 @@ class ProductController extends Controller
         return view('products/create');
     }
 
+    public function dashboard()
+    {
+        return view('Admin.dashboard');
+    }
+    
     public function store(Request $request)
     {
 
